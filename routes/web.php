@@ -1,5 +1,7 @@
 <?php
 
+use App\Task;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +16,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/people', 'PeopleController@index');
+Route::get('/people/create', 'PeopleController@create');
+Route::post('/people', 'PeopleController@store');
+Route::get('/people/{number}', 'PeopleController@show');
