@@ -26,4 +26,5 @@ Route::get('/people/create', 'PeopleController@create');
 Route::post('/people', 'PeopleController@store');
 Route::get('/people/{person}/edit', 'PeopleController@edit');
 Route::patch('/people/{person}', 'PeopleController@update');
-Route::get('/people/{number}', 'PeopleController@show');
+Route::delete('/people/{person}', 'PeopleController@destroy');
+Route::get('/people/{person}', 'PeopleController@show');

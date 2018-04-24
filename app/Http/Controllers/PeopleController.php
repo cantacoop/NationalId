@@ -45,7 +45,10 @@ class PeopleController extends Controller
         return redirect("/people/{$person->number}");
     }
 
-    public function destroy($number) {
+    public function destroy(People $person) {
 
+        $person->delete();
+
+        return redirect("/people");
     }
 }

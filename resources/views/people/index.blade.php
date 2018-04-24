@@ -11,7 +11,7 @@
                         <th>Identification Number</th>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Date of Issue</th>
+                        <th>Latest Date</th>
                         <th>Operation</th>
                     </tr>
                 </thead>
@@ -23,9 +23,17 @@
                             </td>
                             <td>{{ $person->firstname }}</td>
                             <td>{{ $person->lastname }}</td>
-                            <td>{{ $person->created_at->toFormattedDateString() }}</td>
+                            <td>{{ $person->updated_at->toFormattedDateString() }}</td>
                             <td>
-                                <a href="/people/{{ $person->id }}/edit">edit</a>
+                                {{-- Edit button --}}
+                                <a class="btn btn-primary btn-sm" href="/people/{{ $person->id }}/edit" role="button">Edit</a>
+                                {{-- Delete button --}}
+                                <form action="/people/{{ $person->id }}" method="POST">
+                                    {{ method_field('delete') }}
+                                    {{ csrf_field() }}
+                                    <input type="hidden" name="_method" value="DELETE" />
+                                    <button type="submit" class="btn btn-secondary btn-sm" onclick="return confirm('Are you sure you want to delete?')">Delete</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
