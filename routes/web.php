@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/map', function () {
+    return view('map');
+});
+
 Route::get('/people', 'PeopleController@index');
 Route::get('/people/create', 'PeopleController@create');
 Route::post('/people', 'PeopleController@store');

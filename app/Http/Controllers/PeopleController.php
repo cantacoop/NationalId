@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\People;
+use App\Http\Requests\PeopleRequest;
 
 class PeopleController extends Controller
 {
@@ -18,13 +19,7 @@ class PeopleController extends Controller
         return view('people.create');
     }
 
-    public function store() {
-
-        $this->validate(request(), [
-            'number'    => 'required',
-            'firstname' => 'required',
-            'lastname'  => 'required'
-        ]);
+    public function store(PeopleRequest $request) {
 
         People::create(request()->all());
 
@@ -36,5 +31,17 @@ class PeopleController extends Controller
         $person = People::where('number', '=', $number)->first();
 
         return view('people.show', compact('person'));
+    }
+
+    public function edit($number) {
+
+    }
+
+    public function update($number) {
+
+    }
+
+    public function destroy($number) {
+
     }
 }
