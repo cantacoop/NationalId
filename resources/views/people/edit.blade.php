@@ -14,7 +14,7 @@
             
             <div class="form-group">
                 <label for="number">Identification Number</label>
-                <input type="text" class="form-control" id="number" name="number" value="{{ $person->number }}">
+                <input type="text" class="form-control" id="number" name="number" value="{{ $person->number }}" readonly>
             </div>
 
             <div class="form-group">

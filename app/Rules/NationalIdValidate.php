@@ -25,6 +25,9 @@ class NationalIdValidate implements Rule
      */
     public function passes($attribute, $value)
     {
+        // Check for numeric character
+        if (!ctype_digit($value)) return false;
+
         // Fomular check thai national id
         $sum = 0;
         for ($i = 0; $i < strlen($value) - 1; $i++) {

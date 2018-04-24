@@ -38,9 +38,17 @@ class PeopleController extends Controller
         return view('people.edit', compact('person'));
     }
 
-    public function update(PeopleRequest $request, People $person) {
+    public function update(Request $request, People $person) {
         
-        $person->update($request->all());
+        $request->validate([
+            'firstname' => 'required|alpha',
+            'lastname' => 'required|alpha'
+        ]);
+
+        $person->update([
+            'firstname' => $request->firstname,
+            'lastname' => $request->lastname
+        ]);
 
         return redirect("/people/{$person->number}");
     }

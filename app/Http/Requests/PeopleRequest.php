@@ -27,10 +27,13 @@ class PeopleRequest extends FormRequest
         return [
             'number'    => [
                 'required',
+                'numeric',
+                'digits:13',
+                'unique:people',
                 new NationalIdValidate
             ],
-            'firstname' => 'required',
-            'lastname'  => 'required'
+            'firstname' => 'required|alpha',
+            'lastname'  => 'required|alpha'
         ];
     }
 }
