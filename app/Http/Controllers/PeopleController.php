@@ -33,12 +33,16 @@ class PeopleController extends Controller
         return view('people.show', compact('person'));
     }
 
-    public function edit($number) {
+    public function edit(People $person) {
 
+        return view('people.edit', compact('person'));
     }
 
-    public function update($number) {
+    public function update(PeopleRequest $request, People $person) {
+        
+        $person->update($request->all());
 
+        return redirect("/people/{$person->number}");
     }
 
     public function destroy($number) {

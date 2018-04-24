@@ -12,7 +12,7 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Date of Issue</th>
-                        <th>Date of Expiry</th>
+                        <th>Operation</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +24,9 @@
                             <td>{{ $person->firstname }}</td>
                             <td>{{ $person->lastname }}</td>
                             <td>{{ $person->created_at->toFormattedDateString() }}</td>
-                            <td>{{ $person->updated_at->toFormattedDateString() }}</td>
+                            <td>
+                                <a href="/people/{{ $person->id }}/edit">edit</a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

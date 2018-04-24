@@ -24,4 +24,6 @@ Route::get('/map', function () {
 Route::get('/people', 'PeopleController@index');
 Route::get('/people/create', 'PeopleController@create');
 Route::post('/people', 'PeopleController@store');
+Route::get('/people/{person}/edit', 'PeopleController@edit');
+Route::patch('/people/{person}', 'PeopleController@update');
 Route::get('/people/{number}', 'PeopleController@show');

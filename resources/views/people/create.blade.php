@@ -2,7 +2,7 @@
 
 @section ('content')
     <div class="col-md-8 blog-main">
-        <h1>Create a Post</h1>
+        <h1>Create a Person</h1>
 
         <hr>
 
